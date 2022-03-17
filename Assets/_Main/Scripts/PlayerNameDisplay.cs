@@ -5,6 +5,6 @@ public class PlayerNameDisplay : MonoBehaviourPunCallbacks
     private void Start()
     {
         var nameLabel = GetComponent<TextMeshPro>();
-        nameLabel.text = $"{photonView.Owner.NickName}({photonView.OwnerActorNr})";
+        nameLabel.text = $"{photonView.Owner.NickName}";
     }
 }
