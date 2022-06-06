@@ -6,6 +6,7 @@ using Photon.Pun;
 
 //UI使うときは忘れずに。
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyHP : MonoBehaviourPunCallbacks
 {
@@ -16,6 +17,7 @@ public class EnemyHP : MonoBehaviourPunCallbacks
     public Slider slider;
     private EnemyController enemy;
     public Canvas canvas;
+    public TextMeshProUGUI text;
 
     void Start()
     {
@@ -23,7 +25,7 @@ public class EnemyHP : MonoBehaviourPunCallbacks
         //HPの初期化
         currentHp = maxHp;
         slider.value = (float)currentHp / (float)maxHp;
-        
+        text.text = currentHp + "/" + maxHp;
     }
 
     void Update()
@@ -42,7 +44,7 @@ public class EnemyHP : MonoBehaviourPunCallbacks
         {
             //ダメージは75
             int damage = 75;
-           
+
             //現在のHPからダメージを引く　0より小さくなるようであれば0にする
             if (0 > currentHp - damage)
             {
@@ -53,7 +55,7 @@ public class EnemyHP : MonoBehaviourPunCallbacks
                 currentHp = currentHp - damage;
             }
             checkHp();
-            
+
         }
     }
 
@@ -62,11 +64,14 @@ public class EnemyHP : MonoBehaviourPunCallbacks
         //HPbarとHPtextの上書き
         slider.value = (float)currentHp / (float)maxHp;
 
+
+        /***************************************************************/
+        // SESSION4 モンスターの死亡判定の追加
         //HPが0ならステータスをDieに
-        
-            if (currentHp == 0)
-            {
-                //enemy.SetState(EnemyController.EnemyState.Die);
-            }  
-    }   
+        if (currentHp == 0)
+        {
+            //enemy.SetState(EnemyController.EnemyState.Die);
+        }
+        /***************************************************************/
+    }
 }

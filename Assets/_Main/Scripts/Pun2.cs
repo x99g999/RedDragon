@@ -10,9 +10,11 @@ public class Pun2 : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
-
+        /***************************************************************/
+        // SESSION5 キャラクターに攻撃処理を追加してみよう
         //プレイヤーネーム
         PhotonNetwork.NickName = "Player";
+        /***************************************************************/
     }
 
     void OnGUI()
@@ -38,12 +40,12 @@ public class Pun2 : MonoBehaviourPunCallbacks
 
 
         //自分だけが操作できるようにスクリプトを有効にする
-       PlayerController controller = player.GetComponent<PlayerController>();
-       controller.enabled = true;
-       // PlayerHP playerHP = player.GetComponent<PlayerHP>();
-       // playerHP.enabled = true;
-       // ProcessPlayerAnimEvent processPlayerAnim = player.GetComponent<ProcessPlayerAnimEvent>();
-       // processPlayerAnim.enabled = true;
+        PlayerController controller = player.GetComponent<PlayerController>();
+        controller.enabled = true;
+        // PlayerHP playerHP = player.GetComponent<PlayerHP>();
+        // playerHP.enabled = true;
+        // ProcessPlayerAnimEvent processPlayerAnim = player.GetComponent<ProcessPlayerAnimEvent>();
+        // processPlayerAnim.enabled = true;
 
         //モンスターを生成
         if (PhotonNetwork.IsMasterClient)
