@@ -35,7 +35,6 @@ public class EnemyHP : MonoBehaviourPunCallbacks
             Camera.main.transform.rotation;
     }
 
-
     //ColliderオブジェクトのIsTriggerにチェック入れること。
     private void OnTriggerEnter(Collider collider)
     {
@@ -63,7 +62,7 @@ public class EnemyHP : MonoBehaviourPunCallbacks
     {
         //HPbarとHPtextの上書き
         slider.value = (float)currentHp / (float)maxHp;
-
+        text.text = currentHp + "/" + maxHp;
 
         /***************************************************************/
         // SESSION4 モンスターの死亡判定の追加

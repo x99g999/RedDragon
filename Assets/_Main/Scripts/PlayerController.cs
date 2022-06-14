@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             //•œŠˆˆ—@RƒL[‚Å•œŠˆ
             if (Input.GetKey(KeyCode.R))
             {
-               
+                
             }
         }
         /***************************************************************/
